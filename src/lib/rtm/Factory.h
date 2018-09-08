@@ -36,67 +36,6 @@ namespace RTC
   /*!
    * @if jp
    *
-   * @brief RTコンポーネント生成用テンプレート関数
-   * 
-   * RTコンポーネントのインスタンスを生成するためのテンプレート関数。
-   * RTコンポーネント管理用マネージャから呼び出される。
-   * 実際には各コンポーネントのコンストラクタが呼び出される。
-   * \<_New\>で生成対象RTコンポーネントの型を指定する。
-   *
-   * @param manager マネージャオブジェクト
-   *
-   * @return 生成した RTコンポーネント インスタンス
-   * 
-   * @else
-   * @brief Template function to create RT-Components
-   * 
-   * This is the template function to create RT-Component's instances.
-   * This is invoked from RT-Components manager.
-   * Actually, each component's constructor is invoked.
-   * Specify the type of the target RT-Components for creation by \<_New\>.
-   *
-   * @param manager Manager object
-   *
-   * @return Created RT-Component's instances
-   *
-   * @endif
-   */
-  template <class _New>
-  RTObject_impl* Create(Manager* manager)
-  {
-    return new _New(manager);
-  }
-  
-  /*!
-   * @if jp
-   *
-   * @brief RTコンポーネント破棄用テンプレート関数
-   * 
-   * RTコンポーネントのインスタンスを破棄するためのテンプレート関数。
-   * \<_Delete\>にて破棄対象RTコンポーネントの型を指定する。
-   *
-   * @param rtc 破棄対象RTコンポーネントのインスタンス
-   *
-   * @else
-   *
-   * @brief Template function to destroy RT-Components
-   * 
-   * This is the template function to destroy RT-Component's instances.
-   * Specify the type of the target RT-Components for destroy by \<_Delete\>.
-   *
-   * @param rtc The target RT-Component's instances for destruction
-   *
-   * @endif
-   */
-  template <class _Delete>
-  void Delete(RTObject_impl* rtc)
-  {
-    delete rtc;
-  }
-  
-  /*!
-   * @if jp
-   *
    * @class FactoryBase
    * @brief FactoryBase 基底クラス
    * 
