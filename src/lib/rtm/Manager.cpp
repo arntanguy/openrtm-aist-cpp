@@ -691,7 +691,8 @@ std::vector<coil::Properties> Manager::getLoadableModules()
       {
         RTC_ERROR(("Factory not found: %s",
                    comp_id["implementation_id"].c_str()));
-        
+
+        return 0;
         // automatic module loading
         std::vector<coil::Properties> mp(m_module->getLoadableModules());
         RTC_INFO(("%d loadable modules found", mp.size()));
