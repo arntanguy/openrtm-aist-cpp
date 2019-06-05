@@ -55,7 +55,9 @@ namespace coil
   {
     struct sigaction action;
     memset(&action, 0, sizeof(action));  // clear.
-    action.sa_handler = m_handle;
+    action.sa_handler = NULL;
+    action.sa_sigaction = (void (*) (int, siginfo_t *, void*))m_handle;
+    action.sa_flags |= SA_SIGINFO;
 
     signal(m_signum, SIG_IGN);
     if (sigaction(m_signum, &action, 0) < 0)

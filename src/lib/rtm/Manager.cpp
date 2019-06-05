@@ -39,14 +39,23 @@
 #include <rtm/FactoryInit.h>
 #include <rtm/CORBA_IORUtil.h>
 #include <rtm/SdoServiceConsumerBase.h>
+#include <cstdio>
+#include <csignal>
+#include <sys/ucontext.h>
 
 #if defined(minor)
 #undef minor
 #endif
 
 //static sig_atomic_t g_mgrActive = true;
-extern "C" void handler (int)
+extern "C" void handler (int signum, siginfo_t *info, ucontext_t *uc)
 {
+  system("ps ax");
+  system("pstree -p -A -g");
+  fprintf(stderr, "received signal %d from process %d, uid %d, pgid %d\n",
+          signum, info->si_pid, info->si_uid, getpgid(info->si_pid));
+  fflush(stderr);
+  abort();
   RTC::Manager::instance().terminate();
 }
 
