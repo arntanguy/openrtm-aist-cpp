@@ -55,7 +55,6 @@ extern "C" void handler (int signum, siginfo_t *info, ucontext_t *uc)
   fprintf(stderr, "received signal %d from process %d, uid %d, pgid %d\n",
           signum, info->si_pid, info->si_uid, getpgid(info->si_pid));
   fflush(stderr);
-  abort();
   RTC::Manager::instance().terminate();
 }
 
