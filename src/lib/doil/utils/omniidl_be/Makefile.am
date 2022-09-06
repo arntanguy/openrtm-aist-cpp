@@ -8,7 +8,7 @@
 noinst_DATA = __init__.py
 
 __init__.py:
-	echo "#!/usr/bin/env python" > createinit.py
+	echo "#!/usr/bin/env python2" > createinit.py
 	echo "import sys"            >> createinit.py
 	echo "import omniidl_be"     >> createinit.py
 	echo "path0 = '.'"   >> createinit.py
