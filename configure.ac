@@ -77,8 +77,8 @@ AM_WITH_DMALLOC
 AC_CHECK_HEADERS([nlist.h stdlib.h unistd.h])
 AC_CHECK_FUNCS([uname])
 
-CPPFLAGS="-Wall -fPIC $CPPFLAGS"
-CXXFLAGS="-Wall -fPIC $CXXFLAGS"
+CPPFLAGS="-Wall -fPIC $CPPFLAGS -std=c++11"
+CXXFLAGS="-Wall -fPIC $CXXFLAGS -std=c++11"
 
 AC_SEARCH_LIBS(pthread_create, pthread c_r, , 
 	AC_MSG_ERROR([** thread library is needed **])) 
